@@ -23,6 +23,10 @@ namespace WebAdvert.Web
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddCognitoIdentity();
+            services.ConfigureApplicationCookie((options)=>
+            {
+                options.LoginPath = "/Accounts/Login";
+            });
             services.AddControllersWithViews();
         }
 
